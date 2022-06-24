@@ -6,7 +6,7 @@ import MyNav from "./MyNav";
 class MainPage extends Component{
     render(){
         return(
-            <div className="bg-dark">
+            <div style={{backgroundColor:"black"}}>
                 <MyNav/>
                 <GallaryComb/>
                 </div>    

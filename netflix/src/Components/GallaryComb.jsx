@@ -7,7 +7,7 @@ class GallaryComb extends Component{
         return(
             <div>
                 <Gallary1 movieGenre="hobbit" title="Hobbit"/>
-                <Gallary1 movieGenre="harrypotter" title="Harry Potter"/>
+                <Gallary1 movieGenre="harry potter" title="Harry Potter"/>
                 <Gallary1 movieGenre="spiderman" title="Spiderman"/>
             
             </div>

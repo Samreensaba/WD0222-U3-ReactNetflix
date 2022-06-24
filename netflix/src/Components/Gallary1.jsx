@@ -35,16 +35,16 @@ class Gallary1 extends Component{
     render(){
         return(
             <Container>
-                <h2>{this.props.title}</h2>
+                <h2 style={{color:"white"}}>{this.props.title}</h2>
                 <Row>
                 {this.state.isLoading && (
                     <Spinner animation="border" role="status"></Spinner>)}
                     {this.state.movieList &&
-                   this.state.movieList.map((movie)=>(
-                    <Col xs={6}
-                    sm={4}
+                   this.state.movieList.slice(0,6).map((movie)=>(
+                    <Col
+                    xs={4}
                     md={3}
-                    lg={3}
+                    lg={2}
                     className="mb-5" key= {movie.imdbID}>
                    <SingleMovie movie={movie}/>
                     </Col>
