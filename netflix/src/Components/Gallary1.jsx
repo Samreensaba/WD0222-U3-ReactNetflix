@@ -1,14 +1,16 @@
 import { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import SingleMovie from "./SingleMovie"
+import Spinner from "react-bootstrap/Spinner";
 
 
 class Gallary1 extends Component{
     state={
-        movieList:[]
+        movieList:[],
+        isLoading: true
     }
-    componentDidMount= async()=>{
-       await this.movieFetch(this.props.movieGenre)
+    componentDidMount= ()=>{
+       this.movieFetch(this.props.movieGenre)
     }
 
     movieFetch= async(query)=>{
@@ -19,20 +21,25 @@ class Gallary1 extends Component{
             const data = await response.json()
             console.log(data)
             this.setState({
-                movieList: data.Search
+                movieList: data.Search,
+                isLoading: false
+                
             })
         }
         else{
             const message = response.text()
             console.log(message)
+            this.setState({isLoading: false})
         }
     }
     render(){
         return(
             <Container>
+                <h2>{this.props.title}</h2>
                 <Row>
-                    <div><h2>{this.props.title}</h2></div>
-                {this.state.movieList &&
+                {this.state.isLoading && (
+                    <Spinner animation="border" role="status"></Spinner>)}
+                    {this.state.movieList &&
                    this.state.movieList.map((movie)=>(
                     <Col xs={6}
                     sm={4}
